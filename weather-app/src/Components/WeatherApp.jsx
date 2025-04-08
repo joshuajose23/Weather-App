@@ -2,8 +2,17 @@ import sunny from '../assets/Images/sunny.png'
 import cloudy from '../assets/Images/cloudy.png'
 import rainy from '../assets/Images/rainy.png'
 import snowy from '../assets/Images/snowy.png'
-
+import { useState } from 'react'
 const WeatherApp = () => {
+  const [data, setData] = useState([])
+  const api_key = '5e93452db2c88e43bef7b69adbfd5cab'
+
+  const search = async () => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=London&units=Metric&appid=${api_key}`
+    const res = await fetch(url)
+    const searchData = await res.json()
+    console.log(searchData)
+  }
   return (
     <div className="container">
       <div className="weather-app">
@@ -14,7 +23,7 @@ const WeatherApp = () => {
           </div>
           <div className="search-bar">
             <input type="text" placeholder="Enter Location"/>
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass" onClick={search}></i>
           </div>
         </div>
         <div className="weather">
