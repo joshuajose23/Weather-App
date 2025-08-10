@@ -12,7 +12,7 @@ const WeatherApp = () => {
   useEffect (() => {
     const fetchDefaultWeather = async () => {
       const defaultLocation = "Tbilisi"
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=Metric&appid=${api_key}`
+      const url = `YOUR_API_KEY_HERE`
       const res = await fetch(url)
       const defaultData = await res.json()
       setData(defaultData)
@@ -27,7 +27,7 @@ const WeatherApp = () => {
 
   const search = async () => {
     if (location.trim() !== '') {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${api_key}`
+      const url = `YOUR_API_KEY_HERE`
       const res = await fetch(url)
       const searchData = await res.json()
       console.log(searchData)
